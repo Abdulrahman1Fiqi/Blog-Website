@@ -28,4 +28,13 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    public function store(){
+        $data=request();
+
+        dd($data->title);
+
+        return to_route('posts.index');
+    }
+
+
 }
