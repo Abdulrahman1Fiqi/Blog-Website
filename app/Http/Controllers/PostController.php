@@ -13,6 +13,14 @@ class PostController extends Controller
             ['id'=>3,'title'=>'HTML','Poste_by'=>'Mohammed','Created_at'=> '2023-10-06 06:00:00'],
             ['id'=>4,'title'=>'CSS','Poste_by'=>'Ali','Created_at'=> '2023-08-07 05:00:00'],
         ];
-        return view('index',['posts'=>$allPosts]);
+        return view('posts.index',['posts'=>$allPosts]);
+    }
+
+
+    public function show(){
+        $singlePost=[
+            'id'=>4,'title'=>'CSS','Description'=>"This is description",'Poste_by'=>'Ali','Created_at'=> '2023-08-07 05:00:00'
+        ];
+        return view('posts.show',['post'=>$singlePost]);
     }
 }

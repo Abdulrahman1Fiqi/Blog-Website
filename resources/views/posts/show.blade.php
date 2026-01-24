@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fiqi Blog</title>
+    <title>Show</title>
     <link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
@@ -16,48 +16,41 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">All Posts</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('posts.index') }}">All Posts</a>
         </li>
         
       </ul>
     </div>
   </div>
 </nav>
-    <div class="container mt-5">
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4>All Posts</h4>
-        <button class="btn btn-success">Create Post</button>
+<div class="container d-flex justify-content-center mt-5">
+  <div class="card" style="width: 60rem;">
+    <h5 class="card-header">Post Info</h5>
+    <div class="card-body">
+      <h5 class="card-title">Title: {{ $post['title'] }}</h5>
+      <p class="card-text">
+        Description: {{ $post['Description'] }} 
+      </p>
     </div>
+  </div>
+</div>
+<div class="container d-flex justify-content-center mt-5">
+  <div class="card" style="width: 60rem;">
+    <h5 class="card-header">Post Creater Info</h5>
+    <div class="card-body">
+      <h5 class="card-title">Name: Ahmed</h5>
+      <p class="card-text">
+        Email: jlsdljf;ls 
+      </p>
+      <p class="card-text">
+        created ai
+      </p>
+    </div>
+  </div>
+</div>
 
-    <table class="table table-bordered table-striped text-center align-middle">
-        <thead class="table-dark">
-            <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Posted By</th>
-                <th>Created At</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            @foreach ($posts as $post )
-                <tr>
-                <td>{{ $post['id'] }}</td>
-                <td>{{ $post['title'] }}</td>
-                <td>{{ $post['Poste_by'] }}</td>
-                <td>{{ $post['Created_at'] }}</td>
-                <td>
-                    <button class="btn btn-info btn-sm me-4">View</button>
-                    <button class="btn btn-primary btn-sm me-4">Edit</button>
-                    <button class="btn btn-danger btn-sm">Delete</button>
-                </td>
-            </tr>
-            @endforeach
-
-        </tbody>
-    </table>
 
 </div>
     <script src="https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
