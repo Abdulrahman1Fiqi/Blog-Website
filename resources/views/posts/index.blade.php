@@ -27,7 +27,7 @@
                 <td>{{ $post['id'] }}</td>
                 <td>{{ $post['title'] }}</td>
                 <td>{{ $post['Poste_by'] }}</td>
-                <td>{{ $post['Created_at'] }}</td>
+                <td>{{ $post['created_at'] }}</td>
                 <td>
                     <a href="{{route('posts.show',$post['id']) }}" class="btn btn-info btn-sm me-4">View</a>
                     <a href="{{route('posts.edit',$post['id']) }}" class="btn btn-primary btn-sm me-4">Edit</a>
