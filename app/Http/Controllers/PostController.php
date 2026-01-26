@@ -16,11 +16,11 @@ class PostController extends Controller
     }
 
 
-    public function show(){
-        $singlePost=[
-            'id'=>4,'title'=>'CSS','Description'=>"This is description",'Poste_by'=>'Ali','Created_at'=> '2023-08-07 05:00:00'
-        ];
-        return view('posts.show',['post'=>$singlePost]);
+    public function show($postId){
+        $singlePostFromDB=Post::findOrFail($postId);
+
+
+        return view('posts.show',['post'=>$singlePostFromDB]);
     }
 
     public function create(){
