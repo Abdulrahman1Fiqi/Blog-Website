@@ -24,6 +24,7 @@ class PostController extends Controller
     }
 
     public function create(){
+
         $users=User::all();
         
 
@@ -48,17 +49,21 @@ class PostController extends Controller
         return to_route('posts.index');
     }
 
-    public function edit(){
-        return view('posts.edit');
+    public function edit(Post $post){
+
+        $users=User::all();
+
+
+        return view('posts.edit',['users'=>$users,'post'=>$post]);
     }
 
-    public function update(){
+    public function update($postId){
         
         $title=Request()->title;
         $description=Request()->description;
         $post_creator=Request()->post_creator;
 
-       // dd($title,$description,$post_creator);
+       $singlePostFromDB=Post::find($postId);
 
         return to_route('posts.show',1);
     }
