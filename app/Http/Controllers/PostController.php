@@ -36,12 +36,13 @@ class PostController extends Controller
 
         $title=request()->title;
         $description=request()->description;
-        $postCreator=request()->postCreator;
+        $postCreator=request()->post_creator;
 
         $post=new Post();
 
         $post->title=$title;
         $post->description=$description;
+        $post->user_id=$postCreator;
 
         $post->save();  
         
