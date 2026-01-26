@@ -72,8 +72,11 @@ class PostController extends Controller
         return to_route('posts.show',$postId);
     }
 
-    public function destroy(){
+    public function destroy($postId){
 
+        $post= Post::find($postId);
+
+        $post->delete(); 
     
         return to_route('posts.index');
     }
