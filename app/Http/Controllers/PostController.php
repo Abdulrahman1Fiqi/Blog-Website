@@ -64,8 +64,12 @@ class PostController extends Controller
         $post_creator=Request()->post_creator;
 
        $singlePostFromDB=Post::find($postId);
+       $singlePostFromDB->update([
+            'title'=>$title,
+            'description'=>$description,
+       ]);
 
-        return to_route('posts.show',1);
+        return to_route('posts.show',$postId);
     }
 
     public function destroy(){

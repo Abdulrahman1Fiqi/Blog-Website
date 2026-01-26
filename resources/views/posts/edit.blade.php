@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             
-            <form method="POST" action="{{ route('posts.update',1) }}" >
+            <form method="POST" action="{{ route('posts.update',$post->id) }}" >
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
