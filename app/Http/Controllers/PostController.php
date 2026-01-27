@@ -32,6 +32,15 @@ class PostController extends Controller
     }
 
     public function store(){
+
+        request()->validate([
+            'title'=>['required','min:3'],
+            'description'=>['required','min:5'],
+            'post_creator'=>['required','exist:users,id']
+        ]);
+
+
+
         $data=request()->all();
 
         $title=request()->title;
@@ -60,6 +69,8 @@ class PostController extends Controller
 
     public function update($postId){
         
+
+
         $title=Request()->title;
         $description=Request()->description;
         $post_creator=Request()->post_creator;
@@ -68,6 +79,7 @@ class PostController extends Controller
        $singlePostFromDB->update([
             'title'=>$title,
             'description'=>$description,
+            'user_id'=>$post_creator,
        ]);
 
         return to_route('posts.show',$postId);

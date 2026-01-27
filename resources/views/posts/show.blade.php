@@ -19,12 +19,12 @@
   <div class="card" style="width: 60rem;">
     <h5 class="card-header">Post Creater Info</h5>
     <div class="card-body">
-      <h5 class="card-title">Name: Ahmed</h5>
+      <h5 class="card-title">Name: {{ $post->user->name }}</h5>
       <p class="card-text">
-        Email: jlsdljf;ls 
+        Email: {{ $post->user->email }}
       </p>
       <p class="card-text">
-        created ai
+        created at: {{ $post->user->created_at }}
       </p>
     </div>
   </div>
