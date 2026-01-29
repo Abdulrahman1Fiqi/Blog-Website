@@ -10,7 +10,7 @@
     <div class="card-body">
       <h5 class="card-title">Title: {{ $post['title'] }}</h5>
       <p class="card-text">
-        Description: {{ $post['Description'] }} 
+        Description: {{ $post['description'] }} 
       </p>
     </div>
   </div>
