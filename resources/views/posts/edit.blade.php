@@ -24,12 +24,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Post Creator</label>
-                    <select name="post_creator" class="form-control">
-                         @foreach ($users as $user )
-                          <option @selected($user->id == $post->user_id) value="{{ $user->id }}">{{ $user->name }}</option>
-                         @endforeach  
-                    </select>
+                    <input type="hidden" name="post_creator" value="{{ auth()->id() }}">
+                    <label class="form-label">Post Creator: {{ auth()->user()->name }}</label>
                 </div>
 
                 <button class="btn btn-primary">Update</button>

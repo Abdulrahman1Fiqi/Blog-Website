@@ -24,11 +24,9 @@ class PostController extends Controller
     }
 
     public function create(){
-
-        $users=User::all();
         
 
-        return view('posts.create',['users'=>$users]);
+        return view('posts.create');
     }
 
     public function store(){
@@ -36,7 +34,7 @@ class PostController extends Controller
         request()->validate([
             'title'=>['required','min:3'],
             'description'=>['required','min:5'],
-            'post_creator'=>['required','exist:users,id']
+            'post_creator'=>['required','exists:users,id']
         ]);
 
 
@@ -61,6 +59,10 @@ class PostController extends Controller
 
     public function edit(Post $post){
 
+        if ($post->user_id !== auth()->id()) {
+            abort(403);
+        }
+
         $users=User::all();
 
 
@@ -69,6 +71,11 @@ class PostController extends Controller
 
     public function update($postId){
         
+        request()->validate([
+            'title'=>['required','min:3'],
+            'description'=>['required','min:5'],
+            'post_creator'=>['required','exists:users,id']
+        ]);
 
 
         $title=Request()->title;
@@ -87,7 +94,12 @@ class PostController extends Controller
 
     public function destroy($postId){
 
+        
         $post= Post::find($postId);
+
+        if ($post->user_id !== auth()->id()) {
+            abort(403);
+        }
 
         $post->delete(); 
     
