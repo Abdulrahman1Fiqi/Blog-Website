@@ -22,6 +22,11 @@ This project demonstrates **manual authentication** in Laravel without using Bre
 
 ![Fiqi Blog Screenshot 1](./Screenshot.jpeg)
 ![Fiqi Blog Screenshot 2](./Screenshot1.jpeg)
+![Fiqi Blog Screenshot 3](./1.jpeg)
+![Fiqi Blog Screenshot 4](./4.jpeg)
+![Fiqi Blog Screenshot 5](./5.jpeg)
+![Fiqi Blog Screenshot 6](./6.jpeg)
+![Fiqi Blog Screenshot 7](./7.jpeg)
 > The screenshots shows the homepage with all posts listed.  
 > Users can view, create, and manage posts after logging in.
 
