@@ -84,7 +84,7 @@
         <tbody>
             @foreach ($posts as $post )
                 <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ ($posts->currentPage() - 1) * $posts->perPage() + $loop->iteration }}</td>
                 <td>{{ $post['title'] }}</td>
                 <td>{{ $post->user->name }}</td>
                 <td>{{ $post->created_at->format('Y-m-d') }}</td>
@@ -110,6 +110,10 @@
 
         </tbody>
     </table>
+
+    <div class="d-flex justify-content-center mt-3">
+        {{ $posts->links() }}
+    </div>
 
 </div>
 
